@@ -1,0 +1,52 @@
+function():
+    statements
+
+function() #tocall
+
+HOW TO DEFINE ARGUMENTS
+Example:
+def fun(n1,n2,n3,n4):
+    print(n1)
+    print(n2)
+    print(n3)
+    print(n4)
+
+fun(1,2,3,4) #positional
+fun(n4=4,n2=2,n3=3,n1=1) #keyword
+fun(1,2,n4=4,n3=3) #positional+keyword
+
+DEFAULT ARGUMENTS:
+def add(n1,n2=10):
+    return n1+n2
+add(10) #it will use n2s default argument 10
+
+
+example:
+def printhello():
+    print("HELLO!")
+
+printhello()
+printhello()
+
+OP :
+HELLO
+HELLO
+
+example 2:
+def add(n1,n2):
+    n1+=n2
+    return n1
+
+n1=int(input("Enter n1 "))
+n2=int(input("Enter n2 "))
+
+add(n2=int(input("Enter value 1: ")),n1=int(input("Enter value 2: "))) #keyword arguments
+add(10,20) #positional arguments
+
+example 3:
+def power(n1,n2):
+    return n1**n2
+power(n1=int(input("Enter base: ")),n2=int(input("Enter power: ")))
+
+example 4:
+we can combine positional and keyword arguments in a function but positional arguments must be written first

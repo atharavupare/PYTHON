@@ -1,0 +1,37 @@
+Namespace in import
+(Set a name for your imported module)
+
+syntax :
+import arithmatic as arith #you can use arith instead of whole name
+
+
+Importing single function or single classes
+
+Syntax :
+
+from arithmatic import add
+
+
+
+******TYPES OF IMPORT
+ex: 
+suppose module1 is the file and it has function1 and function 2
+
+1)  import module1      #imports whole file with all its functions and classes
+    module1.function1()
+    
+2)  import module1 as m1      #imports whole files with all its functions and classes but assigns different dunder name
+    m1.function1()
+    
+3)  from module1 import function1     #immports a specific function from module
+
+EXAMPLE
+
+import arithmatic as ath
+from Pattern import pattern1
+print("__name__ in temp.py is {}".format(__name__))
+print(arithmatic.factorial(5))
+pattern1(5)
+
+CONTAINER*****
+

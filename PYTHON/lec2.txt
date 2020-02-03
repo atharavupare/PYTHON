@@ -1,0 +1,116 @@
+Bitwise operators
+& Bitwise AND (ex 13 & 5 gives 13)
+| Bitwise OR
+^ Bitwise XOR
+<< Left shift
+>> Right shift
+
+examples 
+9 and 19 = 19
+9 or 19 = 9
+9 & 19 = 1
+9 & 19 = 1
+9 | 19 = 27
+9 ^ 19 = 26
+5<<2 = 20
+5>>2 = 1
+
+write a program to accept a number and check whether it is power of two
+#!
+a=int(input("Enter number "))
+if a&(a-1)==0:
+    print("Number is a power of 2")
+else:
+    print("Number is not a power of 2")
+
+Control flow
+1 Sequence
+2 if...else
+3 loops
+
+for loop example to print each letter in a string on new line
+#!
+name = (raw_input("Enter your Name : "))
+for val in name:
+    print(val)
+
+WAP to accept a string and print all its character except P
+#!
+name = (raw_input("Enter your Name : "))
+for val in name:
+    if val=='p':
+        pass
+    else:
+        print(val)
+
+WAP to skip the user entered character in a string
+#!
+name = (raw_input("Enter a string : "))
+pat = (raw_input("Enter a pattern which you want to exclude : "))
+for val in name:
+    if val==pat:
+        pass
+    else:
+        print(val)
+
+Range function - if given a number then it generates a range from 0 to that number
+also accepts start index and end index, also stepvalue is used to skip that many numbers after a specific number
+if you pass single value to range function then it will consider it as end index and start generating numbers from 0
+
+example - 
+for num in range(10):
+    print(num)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+using startindex and endindex and stepvalue
+for num in range(1,11,2):
+    print(num)
+1
+3
+5
+7
+9
+
+WAP to accept a number from user and print its table
+#!
+num = int(input("Enter a number : "))
+for val in range(1,11):
+    print(num*val)
+
+WAP to print all numbers which are divisible by 3 and 5 within range 1 to 100
+#!
+#num = int(input("Enter a number : "))
+for val in range(1,100):
+    if num%3==0 and num%5==0:
+        print(val," is divisible by 3 & 5")
+    else:
+        pass
+
+WAP a program to accept a year from user and check whether it is a leap year
+#!
+#num = int(input("Enter a number : "))
+for val in range(1,100):
+    if val%3==0 and val%5==0:
+        print(val," is divisible by 3 & 5")
+    else:
+        pass
+
+WAP where the numbers between 1 to 20 print a cube for all the odd numbers in that range and print the square for even number and if the number is divisible by 5 dont do anything
+#!
+for val in range(1,21,1):
+    if val%5==0:
+        continue
+    if val%2==0:
+        print(val**2)
+    elif val%2==1:
+        print(val**3)
+

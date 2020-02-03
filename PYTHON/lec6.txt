@@ -1,0 +1,57 @@
+Format function and placeholders '{}'
+
+a=10
+b=20
+data="The addition of {} & {} is {}"
+data.format(a,b,a+b) #This will pass values of a, b, and add a+b and place these values in the place of placeholders
+
+MODULES IN PYTHON (also known as libraries in other programming languages)
+
+Each individual python script is known as module.
+You can run python script individually or you can import it for reuse.
+
+DUNDER keywords - special of magic keywords which starts with double underscore '__name__' and ends with double underscore
+example -
+def factorial(num):
+    res=1
+    if num<0:
+        return -1
+    while num>0:
+        res*=num
+        num-=1
+    return res
+factorial(5)
+print(__name__)
+
+IMPORT python module
+
+syntax :
+import filename
+
+The python interpreter will search for the filename which is imported, in the locations - Paths, syspaths & current working directory
+
+Whenever a script is imported the interpreter will set the dunder name value will be set to the imported script name
+
+help(filename)
+lists all the documentation, path of file, functions, and comments of the code in the interpreter
+
+filename.functionname() is used to use a specific function on the interpreter.
+
+EXAMPLE TO IMPORT A MODULE
+
+FILE***factorial.py*** #THIS FILE WILL BE IMPORTED IN temp.py
+def factorial(num): #THIS FUNCTION FINDS THE FACTORIAL FOR GIVEN NUMBER
+    res=1
+    if num<0:
+        return -1
+    while num>0:
+        res*=num
+        num-=1
+    return res
+print("__name__ in arithmatic.py is {}".format(__name__))
+
+FILE***temp.py*** #THIS IS THE MAIN FILE WHICH WILL USE factorial.py
+import arithmatic
+print("__name__ in temp.py is {}".format(__name__))
+print(arithmatic.factorial(5))
+

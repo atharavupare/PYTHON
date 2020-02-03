@@ -1,0 +1,130 @@
+continue - suppose you are iterating some container(while loop, for loop) and you want to jump to the next loop at some value so you use continue
+
+ex 
+for num in range(1,10)
+    continue
+print(num)
+
+O/P - 
+1
+2
+4
+5
+7
+8
+
+ex 2-
+data="python"
+for c in data:
+    if c=='t':
+        continue
+    print(c)
+
+OP -
+p
+y
+h
+o
+n
+
+WAP to accept a string and a character fromm user program should print all the characters of that string before the entered character
+
+data=input("Enter a string : ")
+char=input("Enter a character in the string : ")
+for c in data:
+    if c==char:
+        break
+    print(c)
+
+For - Enumeration controlled loop
+While - Logically controlled loop
+
+While loop -
+syntax - while <condition>:
+
+ex -
+num=int(input("Enter a number > 0 : "))
+while num>0:
+    print(num)
+    if num%4==0:
+        num-=2
+    else:
+        num-=1
+        
+print("Done")
+
+OP -
+Enter a number > 0 : 10
+10
+9
+8
+6
+5
+4
+2
+1
+Done
+
+ex 2 - 
+num=int(input("Enter a number > 0 : "))
+while num>0:
+    if num%5!=0:
+        print(num)
+    if num%4==0:
+        num-=2
+    else:
+        num-=1        
+print("Done")
+
+OP-
+Enter a number > 0 : 10
+9
+8
+6
+4
+2
+1
+Done
+
+ex - FACTORIAL
+
+num=int(input("Enter a number : "))
+res=1
+if num==0:
+    print("1")
+elif num<0:
+    print("Enter a positive number")
+else:
+    for val in range(1,num+1):
+        res*=val
+    print(res)
+print("Done")
+
+Enter a number : 5
+120
+Done
+
+WHILE LOOP with FACTORIAL
+
+draw a * pattern
+row=int(input("Enter a number : "))
+if row==0:
+    print("Enter a greater than zero")
+elif row<0:
+    print("Enter a positive number")
+else:
+    for val in range(1,1+row):
+        print("* "*(row-val+1))
+print("Done")
+
+draw a * pattern using while
+row=int(input("Enter a number : "))
+if row==0:
+    print("Enter a greater than zero")
+elif row<0:
+    print("Enter a positive number")
+else:
+    while row>0
+        print("* "*row)
+        row-=1
+print("Done")

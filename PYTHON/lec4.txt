@@ -1,0 +1,72 @@
+WAP to print a pattern as follows
+1
+1   2
+1   2   3
+1   2   3   4
+
+While else:
+
+while <condition>: #if this condition is not satisfied then only it will jump to else block
+    <statements> #if while encounters a break statement then it will skip else block
+else:
+    <statements>
+
+
+for val in <container>: #if this container is exhausted then only it will enter else block
+    <statements> #if the for encounters a break then it will skip else block
+else:
+    <statements>
+
+P:whileelse
+P:forelse
+
+                *
+            *   *   *
+        *   *   *   *   *
+    *   *   *   *   *   *   *   #starPattern.py
+        *   *   *   *   *
+            *   *   *   
+                *
+
+ASSIGNMENTS
+
+starPattern using for loop
+for range(1,noOfLines)
+    for
+        spaces
+    for
+        stars
+
+starPattern using 1
+    1
+1   1   1
+
+pattern -
+a               algo - data = "<give hardcoded alphabets A-Z>"
+a   b                  data[1: : ]
+a   b   c              data[startindex:endindex:stepvalue]
+
+pattern -
+    a
+a   b   c
+
+pattern -
+        a
+    b   a
+c   b   a
+
+pattern -
+1
+1   2
+1   2   3
+1   2   3   4
+
+pattern
+   1
+  121
+ 12321
+1234321
+
+WAP to accept a number and print sum of all digits
+ex - 49 = 4+9
+     69 = 6+9
