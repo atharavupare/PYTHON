@@ -1,0 +1,56 @@
+LIST CONTD.
+CLASSES AND OBJECTS -
+Class is a blueprint.
+An object is an instance of that blueprint.
+
+ex - HUMAN is a class. Chetan is an Object(instance) of the class.
+
+Every class have attributes(properties of class) and behaviour(operations on the attributes)
+ex- bike is a class. CB shine is an object of class bike. Attributes(properties) are average, speed, tank capacity.
+
+behaviour is some sort of operations on attributes.
+
+In some programming languages attributes are also known as data members and behaviour is also known as member functions(methods)
+
+OPERATOR OVERLOADING -
+Changing the behaviour of the object is known as operator overloading.
+for ex-
+a=10
+b=20
+a+b
+30
+
+l1+l2 #appends l1 and l2 and returns result
+l1.__add__(l2) #appends l1 and l2 and returns result
+l1.__iadd__(l2) #appends l1 and l2 and stores result in l1
+[1, 2, 3, 1, 2, 3]
+
+and
+
+l1=[1,2,3]
+l2=[4,5,6]
+l1+l2 #appends the l2 to l1 and prints it
+[1,2,3,4,5,6]
+
+
+TUPLE : It is a list which is immutable
+It is constant list. A list which once created cannot be changed.
+
+syntax :
+t = () #tuple is created by using round brackets
+t = tuple() #constructor
+
+example:
+t = (1)
+type(t)
+<class 'int'> #treated (1) as int because '()' are also used in expressions such as (1+2)*(3+1)
+
+to overcome this
+t= (1,) #add a comma to treat it as a TUPLE
+type(t)
+<class 'tuple'>
+
+Assignment :
+Read list methods through help(list)
+Read tuple methods through help(tuple)
+Make an excel sheet with columns 'operations' 'list' 'tuple'

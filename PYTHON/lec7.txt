@@ -34,3 +34,13 @@ print(arithmatic.factorial(5))
 pattern1(5)
 
 *****CONTAINER
+List - IT is a dynamic mutable array of heterogeneous elements.
+List can be empty (Empty list is considered as False)
+ListName = []
+ex -
+
+List1 = [1,3,2,5,'Chetan','Python',3.14]
+
+syntax for creating List
+l=list()
+l=list(range(1,10))
