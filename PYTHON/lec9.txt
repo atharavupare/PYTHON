@@ -1,0 +1,130 @@
+Compound object : object within an Object
+
+DEEP copy - each and every object and Compound objects is copied to another location as is
+
+SHALLOW copy - normal copy which does not replicate the references(objects)
+
+
+copy module :
+x = copy.copy(y)        #make a shallow copy of y
+x = copy.deepcopy(y)    #make a deep copy of y
+
+TERM:
+>>> l=[1,2,[3,4],7,8]
+>>> l1=l
+>>> import copy
+>>> l1=copy.copy(l)
+>>> l
+[1, 2, [3, 4], 7, 8]
+>>> l1
+[1, 2, [3, 4], 7, 8]
+>>> l1[2].append(5)
+>>> l
+[1, 2, [3, 4, 5], 7, 8]
+>>> l1
+[1, 2, [3, 4, 5], 7, 8]
+>>> l1=copy.deepcopy(l)
+>>> l[2].append(6)
+>>> l
+[1, 2, [3, 4, 5, 6], 7, 8]
+>>> l1
+[1, 2, [3, 4, 5], 7, 8]
+
+SET : SET is a mutable, unordered, dynamic container of heterogeneous unique elements.
+*INDICES are not supported.
+*We cannot add or update element at a particular position because it doesnt use INDICES
+
+SYNTAX :
+NOTE : SET is represented using '{}'. But DICTIONARY is also represented using '{}'. If you use only empty curly braces. it will by default create a DICTIONARY
+
+s={} #will create a DICTIONARY
+s = set() #will create a SET
+
+TERM:
+>>> s = {} #creates an empty DICTIONARY
+>>> type(s)
+<class 'dict'>
+>>> s=set() #creates an empty set
+>>> type(s)
+<class 'set'>
+>>> s
+set()
+>>> l = [1,2,1,2,1,3,2,3] #creates a LIST
+>>> len(l)
+8
+>>> s = set(l) #copies unique elements of l to s
+>>> s
+{1, 2, 3}
+>>> len(s)
+3
+>>> type(s)
+<class 'set'>
+>>> type(l)
+<class 'list'>
+
+To insert an elements in SET use add() OR update(). This method expects container as argument
+Python uses HASH values to differentiate between unique values
+
+add() #adds the container as is if it is immutable to the SET
+>>> s=set()
+>>> s.add([1,2,3])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unhashable type: 'list'
+>>> s.add((1,2,3))
+>>> s
+{(1, 2, 3)}
+
+update() #adds values of container uniquely one by one to the SET
+>>> s.add('python')
+>>> s
+{'python', (1, 2, 3)}
+>>> s.update('python')
+>>> s
+{'t', 'o', 'python', 'p', (1, 2, 3), 'h', 'n', 'y'}
+
+discard() #is a method to remove element from the SET
+remove() #is a method to remove element from the SET BUT the difference is that remove gives an error if element is not present in the SET
+
+--------
+union()
+
+a={1,2,3,4,5}
+b={4,5,6,7,8}
+a.union(b)
+b{1,2,3,4,5,6,7,8}
+a.intersection(b)
+{4,5}
+a&b
+{4,5}
+a | b
+{1,2,3,4,5,6,7,8}
+
+
+ASSIGNMENT****
+Create a table for containers in python for easy understanding
+STUDY methods for SET from help(set)
+STUDY FrozenSet
+
+***DICTIONARY 'dict'
+It is a mutable dynamic container of heterogeneous (key,value) pairs
+key is always unique. key should be immutable and constant
+
+SYNTAX:
+s={} #empty DICTIONARY
+s= {1:1,2:2,'python':'test'} #key:value pairs
+s[1] returns 1 because it checks the 'keys' not the INDICES
+d = dict() #using dict constructor
+
+
+>>> s["name"]="Chetan" #TO ADD OR CHANGE AN ELEMENT IN THE DICTIONARY
+>>> s["name"]
+'Chetan'
+>>> s[1]='Atharav'
+>>> s[1]
+'Atharav'
+>>> s[1]='Rohit'
+>>> s[1]
+'Rohit'
+>>> s
+{'name': 'Chetan', 1: 'Rohit'}
