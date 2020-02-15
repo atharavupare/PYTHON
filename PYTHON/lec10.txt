@@ -1,0 +1,94 @@
+zip() :
+It is a function which accepts one or more containers and returns a reference which stores a tuple of each pair of same index
+*We can pass a zip object to DICTIONARY constructor but the tuple length should be '2'
+l1=[1,2]
+l2=[1,4]
+l3=[1,8,27]
+z = zip(l1,l2)
+[(1,1),(2,4)]
+z1 = zip(l1,l2,l3)
+[(1,1,1),(2,4,8)]
+
+>>> l1=[1,2,3]
+>>> m=[1,4,9]
+>>> z = zip(l1,m)
+>>> z
+<zip object at 0x7f58f924d708>
+>>> type(z)
+<class 'zip'>
+>>> for val in z:
+...     print(type(val))
+...     print(val)
+...
+<class 'tuple'>
+(1, 1)
+<class 'tuple'>
+(2, 4)
+<class 'tuple'>
+(3, 9)
+
+>>> l1=[1,2,3]
+>>> m=[1,4,6]
+>>> z = zip(l1,m)
+>>> z.__next__()
+(1, 1)
+>>> z.__next__()
+(2, 4)
+>>> z.__next__()
+(3, 6)
+
+>>> z = zip(l1,m)
+>>> d = dict(z) #we can pass zip object to DICTIONARY container but the tuple length should be '2'
+>>> d
+{1: 1, 2: 4, 3: 6}
+
+EX :
+>>> states = ['MH','Goa','MP']
+>>> capitals = ['mumbai','panjim','Bhopal']
+>>> z = zip(states,capitals)
+>>> d=dict(z)
+>>> d
+{'MH': 'mumbai', 'Goa': 'panjim', 'MP': 'Bhopal'}
+>>> d['UP'] = 'Lucknow'
+>>> d
+{'MH': 'mumbai', 'Goa': 'panjim', 'MP': 'Bhopal', 'UP': 'Lucknow'}
+
+
+
+COMPREHENSIONS :
+Generates container in a single LOC
+
+ex:
+list which contains squares of values from 1 to 10
+>>> l = [val**2 for val in range(1,11)] #list created in one line
+>>> l
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+>>> l = [val**2 for val in range(1,11) if val%2==0] #creates a list with elements which are square for even numbers
+>>> l
+[4, 16, 36, 64, 100]
+>>> l = [val**2 for val in range(1,11) if val%2!=0] #returns list with elements as square for odd numbers
+>>> l
+[1, 9, 25, 49, 81]
+
+>>> l = {val**2 for val in range(1,11) if val%2!=0} #returns set with elements as square for odd numbers
+>>> l
+{1, 9, 81, 49, 25}
+
+>>> states = ['mh','goa','mp']
+>>> cap = ['mumbai','panjim','bhopal']
+>>> d = dict({val for val in zip(states,cap)})
+>>> d
+{'mp': 'bhopal', 'mh': 'mumbai', 'goa': 'panjim'}
+
+>>> d = {val:val**2 for val in range(1,11)} #DICTIONARY COMPREHENSION
+>>> d
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
+>>> type(d)
+<class 'dict'>
+
+
+*****
+ASSIGNMENT
+
+Write your own zip() which will accept number of containers and return tuple of the combination of the same (for max and min values)

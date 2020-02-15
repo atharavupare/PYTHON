@@ -33,7 +33,7 @@ TERM:
 SET : SET is a mutable, unordered, dynamic container of heterogeneous unique elements.
 *INDICES are not supported.
 *We cannot add or update element at a particular position because it doesnt use INDICES
-
+*set can be partially called as DICTIONARY. SET also has key,value pair but only values are visible to us.
 SYNTAX :
 NOTE : SET is represented using '{}'. But DICTIONARY is also represented using '{}'. If you use only empty curly braces. it will by default create a DICTIONARY
 
@@ -111,12 +111,51 @@ It is a mutable dynamic container of heterogeneous (key,value) pairs
 key is always unique. key should be immutable and constant
 
 SYNTAX:
+
 s={} #empty DICTIONARY
 s= {1:1,2:2,'python':'test'} #key:value pairs
 s[1] returns 1 because it checks the 'keys' not the INDICES
+
 d = dict() #using dict constructor
 
+d=dict(one=1,two=2,three=3) #keyvalue pairs
 
+d.get(one,-1) #returns val from dict, if not present then returns -1
+
+for key in d.keys(): #keys() returns keys
+    print(key)
+one
+two
+three
+
+for key in d.keys():
+    print(d[key]) #returns value for that particular key in DICTIONARY
+1
+2
+3
+
+for pair in d.items(): #returns pair in the form of tuple from a DICTIONARY
+    print(pair)
+(one,1)
+(two,2)
+(three,3)
+
+for k,v in d.items():
+    print(k)
+    print(v)
+one
+1
+two
+2
+three
+3
+
+TO DELETE AN ITEM IN DICTIONARY
+del d["one"] #deletes the pair with key = one
+
+d.pop('two') #deletes pair with key as two
+
+TO ADD OR CHANGE AN ELEMENT IN THE DICTIONARY
 >>> s["name"]="Chetan" #TO ADD OR CHANGE AN ELEMENT IN THE DICTIONARY
 >>> s["name"]
 'Chetan'
