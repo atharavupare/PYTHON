@@ -1,0 +1,92 @@
+ARGUMENTS
+
+def add(*args): #ACCEPTS ANY NUMBER OF POSITIONAL ARGUMENTS
+    print(type(args))
+    res=0
+    for val in args:
+        res+=val
+    return res
+
+def foo(**kwargs): #ACCEPTS ANY NUMBER OF KW ARGUMENTS
+    print(type(kwargs))
+    for k,v in kwargs.items():
+        print(k,v)
+
+def fun(*args,**kwargs): #ACCEPTS ANY NUMBER OF POSITIONAL AND KW ARGUMENTS
+    print(type(args))
+    print(type(kwargs))
+    print("LENGHT OF POS ARGS : ", len(args))
+    print(args)
+    print("LENGTH OF KW ARGS : ", len(kwargs))
+    print(kwargs)
+
+def kwargs(*,a=10,b=20): #ACCEPTS 2 number of KW ARGUMENTS
+    print(type(a))
+    print(type(b))
+    print(a)
+    print(b)
+
+OP:
+>>> import variableNoOfArgs
+>>> variableNoOfArgs.add(1,2,3)
+<class 'tuple'>
+6
+>>> variableNoOfArgs.foo(a=2,b=3)
+<class 'dict'>
+a 2
+b 3
+
+>>> d=dict(a=1,b=2)
+>>> variableNoOfArgs.fun(1,a=d)
+<class 'tuple'>
+<class 'dict'>
+LENGHT OF POS ARGS :  1
+(1,)
+LENGTH OF KW ARGS :  1
+{'a': {'a': 1, 'b': 2}}
+>>> variableNoOfArgs.fun(1,d)
+<class 'tuple'>
+<class 'dict'>
+LENGHT OF POS ARGS :  2
+(1, {'a': 1, 'b': 2})
+LENGTH OF KW ARGS :  0
+{}
+
+>>> variableNoOfArgs.kwargs(a=1,b=2)
+<class 'int'>
+<class 'int'>
+1
+2
+
+*************
+FILE HANDLING
+FILE : FILE is unformated stream of bytes.
+>>> fd.open("test.txt")
+>>> fd.read()
+'abc\ndef\n'
+#test.txt contains
+abc
+def
+
+TYPES OF FILES IN LINUX
+1.REGULAR FILES : .txt, .docx, .pdf, .py, .mp3, .mp4, .xlsx, .jpeg, .sys, .dll, .lib, .so, .a
+how to check regular files :
+when you do ls -l in linux if you get the first hyphen it denotes it is a regular file
+EX :
+-rw-r--r-- 1 sbshark sbshark          0 Jan 25 12:06 abc.py
+-rw-r--r-- 1 sbshark sbshark        243 Jan 25 12:21 asslec5.python
+
+2.DIRECTORY : DIRECTORY is a container which contains REGULAR FILES
+how to check regular files :
+ls -l outputs
+-rw-r--r-- 1 sbshark sbshark        124 Feb  3 19:24 chetan.py
+-rw-r--r-- 1 sbshark sbshark          7 Feb  3 19:19 chetan.txt
+drwxr-xr-x 2 sbshark sbshark       4096 Feb  3 21:44 Desktop
+#d in the third line denotes Desktop is a DIRECTORY
+
+3.SOFTLINK (Shortcut File): IT is a file which does not have data but has the path of the file for which you have created it
+
+4.
+5.
+6.
+7.
