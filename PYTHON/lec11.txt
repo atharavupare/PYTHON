@@ -86,7 +86,7 @@ drwxr-xr-x 2 sbshark sbshark       4096 Feb  3 21:44 Desktop
 
 3.SOFTLINK (Shortcut File): IT is a file which does not have data but has the path of the file for which you have created it
 
-4.
+4
 5.
 6.
 7.

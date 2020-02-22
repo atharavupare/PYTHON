@@ -1,0 +1,93 @@
+*************
+FILE HANDLING
+FILE : FILE is unformated stream of bytes.
+>>> fd.open("test.txt")
+>>> fd.read()
+'abc\ndef\n'
+#test.txt contains
+abc
+def
+
+TYPES OF FILES IN LINUX
+1.REGULAR FILES : .txt, .docx, .pdf, .py, .mp3, .mp4, .xlsx, .jpeg, .sys, .dll, .lib, .so, .a
+how to check regular files :
+when you do ls -l in linux if you get the first hyphen it denotes it is a regular file
+EX :
+-rw-r--r-- 1 sbshark sbshark          0 Jan 25 12:06 abc.py
+-rw-r--r-- 1 sbshark sbshark        243 Jan 25 12:21 asslec5.python
+
+2.DIRECTORY : DIRECTORY is a container which contains REGULAR FILES
+how to check regular files :
+ls -l outputs
+-rw-r--r-- 1 sbshark sbshark        124 Feb  3 19:24 chetan.py
+-rw-r--r-- 1 sbshark sbshark          7 Feb  3 19:19 chetan.txt
+drwxr-xr-x 2 sbshark sbshark       4096 Feb  3 21:44 Desktop
+#d in the third line denotes Desktop is a DIRECTORY
+
+3.SOFTLINK (Shortcut File): IT is a file which does not have data but has the path of the file for which you have created it
+
+4.HARDLINK
+5.PIPE
+6.SOCKET
+7.
+
+1 and 2 types are important
+
+FILE HAS THESE important attributes
+name - info.txt
+mode - r/w/rw (read/write)
+
+DATA is stored in blocks in Secondary storage
+each block is of 4 KBytes
+each file has two file sizes.
+-ACTUAL size (size of number of characters in the file)
+-SIZE on disk (Size on disk is the number of blocks allocated to the file)
+
+TO get the current working DIRECTORY in python import os, then write os.getcwd() will return current working DIRECTORY)
+import os
+os.getcwd()
+'/home/sbshark'
+$pwd #returns present working DIRECTORY in linux terminal
+os.listdir() #will give list of files in the cwd
+os.chdir() #will change the current working DIRECTORY
+
+fd = open("info.txt","r")
+fd.name() #returns current open file name
+fd.readable() #returns true if file is readable
+fb.writable() #returns true is file is writable
+
+>>> fd = open("temp.py")
+>>> fd
+<_io.TextIOWrapper name='temp.py' mode='r' encoding='UTF-8'>
+>>> fd.tell() #returns the file offset from which next operations will be performed
+0
+>>> data = fd.read(4) #changes the offset to the 4th position in the File
+>>> data
+'impo'
+>>> fd.tell() #will print 4 because offset is changed
+4
+
+WHENEVER we open a file initial offset will be set to '0'th position in the FILE
+
+>>> fd.read(2) #next 2 characters will be returned
+'rt'
+>>> fd.tell()
+6
+>>> fd = open("temp.py") #file offset will be again set to 0
+>>> fd.tell()
+0
+
+fd.open('info.txt','w') #opens file in read mode, if file is present it will start from the 0th position and start replacing the data in the file.
+#if file is not present it will create the file and start from 0
+
+fd.write('Hello!') #will write Hello to the file buffer
+fd.flush() #will flush and save the written changes to the disk
+fd.tell() #will return 6
+6
+
+NOTE : IF you write some data to the disk it will create a buffer for the data and WHENEVER we will call flush() method it will write the buffers to the disk, It will do so to reduce the overhead and increase performance
+
+seek(0,0) #method will take two parameters and set the file object offset to the given parameters
+SYNTAX : seek(where,from)
+
+HOMEWORK : WAP to accept a filename from user and accept the input line by line
