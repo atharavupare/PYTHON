@@ -1,0 +1,23 @@
+Operating System will by default open 3 files whenever you run a program
+these are
+0 stdin #input File
+1 stdout #output FILE
+2 stderr #error File
+
+in a python program if you write fd.fileno() it will return number of files opened by the program, by default every file will open above 3 files
+
+>>> fd = open("test.txt", 'w')
+>>> fd.fileno()
+3
+
+>>> print("HELLO") #By Default file parameter is set to sys.stdin which means print function will print data to the console
+HELLO
+>>> fd = open("print.txt","w")
+>>> print("HELLO", file=fd) #after passing fd (file descriptor) to the print it will directly write to file
+>>> fd.readline()
+>>> fd = open("print.txt")
+>>> fd.readline()
+'HELLO\n'
+
+WAP to accept file name and print alternate lines in a file
+WAP to implement cp command (copy contents from one file to another)
