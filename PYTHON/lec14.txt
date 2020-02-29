@@ -1,0 +1,124 @@
+We want to execute OS command with Python script
+
+import subprocess as sp
+
+LINUX/UNIX say that if a function returns '0' then it is executed successfully
+and if a function returns '1' then it is not executed successfully
+
+While windows says the opposite
+
+to check the exit status of the last command use 'echo $?'
+ls
+#will return files present in the current directory
+#if we check the exit status after this command it will return '0'
+
+EXAMPLE :
+sbshark@pop-os:~/github/PYTHON$ ls
+123starpattern.py  fileOpen.py  lec11.txt  lec2.py   lec5.py   lec9.txt     __pycache__       temp.py
+abcpattern1.py     forelse.py   lec12.txt  lec2.txt  lec5.txt  modules      smallest.py       test.txt
+abcstarpat.py      forelse.txt  lec13.txt  lec3.py   lec6.txt  Pattern.py   starpattern.py    text.txt
+arithmatic.py      largest.py   lec14.txt  lec3.txt  lec7.txt  powerof2.py  starPatusing1.py  whileelse.py
+arithmatic.pyc     lec10.txt    lec1.txt   lec4.txt  lec8.txt  print.txt    templeabc.py
+sbshark@pop-os:~/github/PYTHON$ echo $?
+0
+sbshark@pop-os:~/github/PYTHON$ cp lec22.txt lec27.txt #both files are not present
+cp: cannot stat 'lec22.txt': No such file or directory
+sbshark@pop-os:~/github/PYTHON$ echo $?
+1
+sbshark@pop-os:~/github/PYTHON$ ls -l lec12
+ls: cannot access 'lec12': No such file or directory
+sbshark@pop-os:~/github/PYTHON$ echo $?
+2 #ANY NONZERO VALUE IS CONSIDERED AS FALSE IN LINUX, ONLY '0' IS CONSIDERED AS true
+
+0 = TRUE
+Anything other than 0 = FALSE
+
+SHELL META CHARACTERS '>' & '<'
+
+sbshark@pop-os:~$ ls -l > list.txt # '>' will execute the command and output its output to the list.txt
+sbshark@pop-os:~$ cat list.txt
+total 1752500
+-rw-r--r-- 1 sbshark sbshark          0 Jan 25 12:06 abc.py
+-rw-r--r-- 1 sbshark sbshark        243 Jan 25 12:21 asslec5.python
+drwxr-xr-x 3 sbshark sbshark       4096 Feb 12 02:06 asus_fanmode
+.
+.
+.
+
+
+sbshark@pop-os:~/github/PYTHON$ ls -l test.txt > list.txt #will return the command output(WILL NOT RETURN THE ERROR TO THE FILE, WILL PRINT TO THE CONSOLE)to list.txt
+sbshark@pop-os:~/github/PYTHON$ cat list.txt
+-rw-r--r-- 1 sbshark sbshark 27 Feb 23 10:23 test.txt #COMMAND OUTPUT PRINTED
+sbshark@pop-os:~/github/PYTHON$ ls -l test11.txt 2> list.txt #'2>' will also return the error to the file
+sbshark@pop-os:~/github/PYTHON$ cat list.txt
+ls: cannot access 'test11.txt': No such file or directory #ERROR PRINTED
+
+WC command:
+sbshark@pop-os:~/github/PYTHON$ wc list.txt
+ 1  9 58 list.txt #will return No. of lines, no. of words, no. of characters and file name
+
+PYTHON SHELL : TO EXECUTE/CALL SYSTEM COMMANDS FROM PYTHON SCRIPT
+
+>>> import subprocess as sp
+>>> sp.call("ls")
+123starpattern.py  arithmatic.pyc  largest.py  lec13.txt  lec2.txt  lec5.py   lec8.txt	Pattern.py   smallest.py       temp.py
+abcpattern1.py	   fileOpen.py	   lec10.txt   lec14.txt  lec3.py   lec5.txt  lec9.txt	powerof2.py  starpattern.py    test.txt
+abcstarpat.py	     forelse.py	     lec11.txt   lec1.txt   lec3.txt  lec6.txt  list.txt	print.txt    starPatusing1.py  text.txt
+arithmatic.py	     forelse.txt	   lec12.txt   lec2.py	  lec4.txt  lec7.txt  modules	__pycache__  templeabc.py      whileelse.py
+0
+
+>>> ret = sp.call("ls lec2.txt", shell=True) #if you want to pass arguments you need to pass shell=True, which means it will tell the Python interpreter that treat whole parameter string like a command which will run on a terminal
+lec2.txt
+>>> ret
+0
+
+>>> ret = sp.call(["ls","-l","lec2.txt"]) #WHEN YOU GIVE '[]' to each paramter in a command it will append each parameter and treat the whole as a command
+-rw------- 1 sbshark sbshark 2558 Jan 11 09:29 lec2.txt
+>>> ret
+0
+
+
+>>> fd = open("redirect.txt","w") #CREATES A FILE
+>>> fd.tell() #RETURNS FILE POINTER
+0
+>>> ret = sp.call("ls -l lec2.txt", shell=True, stdout=fd) #stdout is a keyword argument which specifies that where the output will go, here we have mentioned fd which points to file, redirect.txt, THE OUTPUT OF THE COMMAND WILL BE OUTPUTTED TO THE FILE redirect.txt
+>>> fd.tell()
+56
+>>> ret = sp.call(["cat","redirect.txt"]) #WILL PRINT THE CONTENTS OF THE FILE
+-rw------- 1 sbshark sbshark 2558 Jan 11 09:29 lec2.txt #THE OUTPUT OF THE PREVIOUS COMMAND
+
+
+>>> fdo = open("output.txt","w")
+>>> fde = open("error.txt","w")
+>>> ret = sp.call("ls a.txt",shell=True, stdout=fdo) #a.txt contains 'PYTHON' #Outputs the output to the file output.txt
+>>> fdo.flush()
+
+>>> sp.call("ls b.txt",shell=True, stderr=fde) #Outputs the error to the error.txt
+2
+>>> fde.flush()
+
+
+>>> fdr = open('a.txt') #a.txt contains PYTHON string
+>>> ret = sp.call('wc',shell=True,stdin=fdr) #stdin will give input from a.txt to the wc command which will return number of characters as 7 number of lines as 1 and number of words as 1
+1 1 7
+lines = 1
+words = 1
+chars = 7
+
+call() by default, will not throw any error/exception
+check_call() will throw an exception if command is failed
+
+>>> ret = sp.check_call('ls b.txt', shell=True)
+ls: cannot access 'b.txt': No such file or directory #OUTPUT FROM THE TERMINAL
+Traceback (most recent call last): #EXCEPTION MESSAGE
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python3.6/subprocess.py", line 311, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'ls b.txt' returned non-zero exit status 2. #EXCEPTION
+
+
+-----: OBJECT ORIENTED PROGRAMMING :-----
+
+Class : it is a blueprint/ structure which has some attributes and behaviour
+
+OBJECT : It is the instance of the Class. Which has same attributes and behaviour, But memory is assigned to it

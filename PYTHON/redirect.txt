@@ -1,0 +1,1 @@
+-rw------- 1 sbshark sbshark 2558 Jan 11 09:29 lec2.txt
