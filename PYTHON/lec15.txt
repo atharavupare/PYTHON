@@ -1,0 +1,150 @@
+
+-----: OBJECT ORIENTED PROGRAMMING :-----
+
+Class : it is a blueprint/ structure which has some attributes and behaviour
+
+SYNTAX :
+
+class classname:
+    statements
+
+OBJECT : It is the instance of the Class. Which has same attributes and behaviour, But memory is assigned to it
+
+SYNTAX:
+to create an object of the class:
+
+objName = classname(<default args>)
+
+EX:
+>>> class test:
+...     pass
+...
+>>> t = test()
+>>> t
+<__main__.test object at 0x7f63a5932f60>
+>>> type(t)
+<class '__main__.test'>
+>>> l = list()
+>>> type(l)
+<class 'list'>
+
+
+NOTE : IF you want to define certain attributes in your class then it is mandatory to write __init__ function, it is by default called whenever the object is created ( IT IS LIKE THE CONSTRUCTOR OF THE CLASS )
+
+NOTE : Any method in the class should compulsory have self attribute to access inner elements of the class
+EX:
+
+class Circle:
+    pi = 3.14159 #STATIC VARIABLE WHICH IS CALLED AS CLASS VARIABLE IN PYTHON, STATIC VARIABLES MUST BE DEFINED HERE, THEY ARE SAME FOR EVERY OBJECT
+    def __init__(self,radius,color="black",filled=False): #OBJECT VARIABLES MUST BE DEFINED HERE, THESE ARE DIFFERENT FOR EVERY OBJECT
+        self.r = radius
+        self.__c = color #__ means the access SPECIFIER is PRIVATE
+        self.fill = filled
+
+    def area(self):
+        return pi * self.r * self.r
+
+    def filled(self):
+        return self.fill
+
+    def diameter(self):
+        return self.r*2
+
+    def getColor(self):
+        return self.__c
+
+    def setColor(self,color):
+        self.__c = color
+        print("Color set to",self.__c)
+
+    def __repr__(self): #WHEN OBJECT IS CALLED DIRECTLY IT WILL BY DEFAULT CALL THIS METHOD
+        return "Circle object with radius {}".format(self.r)
+
+    def __eq__(self,otherCircle) #WHEN WE COMPARE TWO OBJECTS DIRECTLY USING '==' OPERATOR THIS METHOD IS CALLED BY DEFAULT
+        return self.r == otherCircle.r and self.__c == otherCircle.__c
+
+    def __lt__(self,otherCircle): #WHEN WE COMPARE TWO OBJECTS DIRECTLY USING '<' (less Than OPERATOR) THIS METHOD IS CALLED BY DEFAULT
+        if(self.r < otherCircle.r):
+            return "{} is Larger".format(otherCircle)
+        else:
+            return "{} is larger".format(self)
+
+
+OP :
+>>> import shape
+>>> help(shape)
+
+>>> c1 = shape.Circle(5)
+>>> c1.area()
+78.53975
+>>> c1.diameter()
+10
+>>> c1.filled()
+False
+>>> c1.getColor()
+'black'
+>>> c1.setColor("blue")
+Color set to blue
+>>> c1.__dict__ #By accessing the dunder dict attribute of the class it contains all the key i.e the attribute and value(value of the attribute), IT IS BY DEFAULT ADDED WHENEVER NEW OBJECT IS CREATED
+{'r': 5, '__c': 'blue', 'fill': False}
+
+
+>>> l = [1,2,3] #LIST
+>>> l #WHEN WE CALL LIST OBJECT IT PRINTS THE LIST
+[1, 2, 3]
+>>> c1 #BUT WHEN WE CALL THE OBJECT OF OUR CLASS IT WILL PRINT AN ADDRESS WHICH IS NOT MEANINGFULL
+<shape.Circle object at 0x7feb03d523c8>
+>>> l.__str__() #WHEN WE CALL list object INTERNALLY IT WILL CALL THE __repr__() OR __str__() METHODS WHICH WILL PRINT THE LIST
+'[1, 2, 3]'
+>>> c1 = shape.Circle(5) #CIRCLE OBJECT WITH RADIUS 5
+>>> c1
+Circle object with radius 5
+
+>>> c1 = c2
+>>> c1 == c2
+True
+
+>>> c1 =shape.Circle(9)
+>>> c2 = shape.Circle(10,color="blue")
+>>> c1 > c2
+'Circle with radius 10 is larger'
+
+>>> c1.__dict__
+{'r': 9, '__c': 'black', 'fill': False, 'pi': 3.14159}
+>>> c1.r = 10 #SETTING THE RADIUS TO 10
+>>> c1.r
+10
+>>> c1.__dict__
+{'r': 10, '__c': 'black', 'fill': False, 'pi': 3.14159}
+
+NOTE : BY DEFAULT EVERY attribute AND function is PUBLIC IN PYTHON
+
+NOTE : TO CHANGE THE PRIVACY/ACCESS SPECIFIER TO PRIVATE ADD '__' DOUBLE UNDERSCORE
+
+>>> c2 = shape.Circle(10,color="blue")
+>>> c2.__c
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Circle' object has no attribute '__c'
+>>> c2.__dict__
+{'r': 10, '_Circle__c': 'blue', 'fill': False, 'pi': 3.14159}
+
+NOTE : CLASS ATTRIBUTES are the attributes whose value is same for all OBJECTS
+
+NOTE : TO DELETE AN OBJECT USE BELOW SYNTAX
+del objectName
+
+ASSIGNMENT :
+1.ACCEPT INFORMATION OF 10 STUDENTS AND PRINT THEIR DATA
+
+2.IMPLEMENT A CLASS RECTANGLE WITH BELOW attributes
+length
+breadth
+Color
+filled
+IMPLEMENT THE FOLLOWING METHODS
+area
+perimeter
+getColor
+setColor
+==, >, <, <=, >=
