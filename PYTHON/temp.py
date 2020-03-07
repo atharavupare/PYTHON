@@ -1,4 +1,4 @@
 import fileOpen
 
 f = fileOpen
-f.fileOpen("text.txt")
+f.fileOpen("text.txt)

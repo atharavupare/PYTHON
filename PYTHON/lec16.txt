@@ -1,0 +1,140 @@
+4 FILES DOWNLOADED
+shape_with_inheritance.py
+shape_without_inheritance.py
+mro.py
+stack.py
+
+print("\nArea of circle c1:", format(c1.get_area(), "0.2f")) #THE LAST PART IN THIS LINE IS USED TO DENOTE HOW MANY DECIMAL POINTS TO SHOW, IN THIS CASE IT WILL SHOW 2 DECIMAL POINTS AFTER .
+
+INHERITANCE:
+If you have some common methods and common attributes and if you have to use them simultaneously in other classes, we can create a single class for that specific methods and inherit it in other classes
+
+NOTE : BY DEFAULT EVERY CLASS IS INHERITED USING OBJECT CLASS
+
+python3>
+import shape_with_inheritance as s
+help(s)
+Help on module shape_with_inheritance:
+
+NAME
+    shape_with_inheritance
+
+CLASSES
+    builtins.object
+        Shape
+            Circle
+            Rectangle
+
+    class Circle(Shape)
+     |  Method resolution order:
+     |      Circle
+     |      Shape
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __init__(self, radius)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  get_area(self)
+     |
+     |  get_perimeter(self)
+     |
+     |  get_radius(self)
+     |
+     |  set_radius(self, radius)
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from Shape:
+     |
+     |  get_color(self)
+     |
+     |  is_filled(self)
+     |
+     |  set_color(self, color)
+     |
+     |  set_filled(self, filled)
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from Shape:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+    class Rectangle(Shape)
+     |  Method resolution order:
+     |      Rectangle
+     |      Shape
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __init__(self, length, breadth)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  get_area(self)
+     |
+     |  get_breadth(self)
+     |
+     |  get_length(self)
+     |
+     |  get_perimeter(self)
+     |
+     |  set_breadth(self, breadth)
+     |
+     |  set_length(self, length)
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from Shape:
+     |
+     |  get_color(self)
+     |
+     |  is_filled(self)
+     |
+     |  set_color(self, color)
+     |
+     |  set_filled(self, filled)
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from Shape:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+    class Shape(builtins.object)
+     |  Methods defined here:
+     |
+     |  __init__(self, color='black', filled=False)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  get_color(self)
+     |
+     |  is_filled(self)
+     |
+     |  set_color(self, color)
+     |
+     |  set_filled(self, filled)
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FILE
+    /home/sbshark/github/PYTHON/shape_with_inheritance.py
+
+(END)
+
+ASSIGNMENT:
+WRITE A CLASS TO IMPLEMENT A STACK

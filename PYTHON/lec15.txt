@@ -3,6 +3,8 @@
 
 Class : it is a blueprint/ structure which has some attributes and behaviour
 
+NOTE : BY DEFAULT IN PYTHON EVERY CLASS IS IN ITSELF A DICTIONARY
+
 SYNTAX :
 
 class classname:
@@ -133,6 +135,10 @@ NOTE : CLASS ATTRIBUTES are the attributes whose value is same for all OBJECTS
 
 NOTE : TO DELETE AN OBJECT USE BELOW SYNTAX
 del objectName
+
+>>> dir(c1) #RETURNS CLASS METHODS
+['_Circle__c', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'area', 'diameter', 'fill', 'filled', 'getColor', 'pi', 'r', 'setColor']
+
 
 ASSIGNMENT :
 1.ACCEPT INFORMATION OF 10 STUDENTS AND PRINT THEIR DATA
