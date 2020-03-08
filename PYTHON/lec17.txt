@@ -1,0 +1,47 @@
+import stack.py
+>>> s1 = s.Stack(5)
+Created stack with size:  5
+>>> s1.__dict__
+{'_Stack__mStack': [], '_Stack__mSize': 5}
+>>> s1.isEmpty()
+True
+>>> s1.isFull()
+False
+>>> s1.push(10)
+True
+>>> s1.push(20)
+True
+>>> s1.__dict__
+{'_Stack__mStack': [10, 20], '_Stack__mSize': 5}
+>>> s1.push(30)
+True
+>>> s1.push(40)
+True
+>>> s1.push(50)
+True
+>>> s1.__dict__
+{'_Stack__mStack': [10, 20, 30, 40, 50], '_Stack__mSize': 5}
+>>> s1.push(60) #stack is full
+False
+
+
+MRO - METHOD RESOLUTION ORDER
+
+class A
+>a,foo,bar
+class B(A)
+>b,foo
+class C(A)
+>c,bar
+class D(B,C)
+now if we call method foo with D class OBJECT
+it will first check its own class for foo(), then check class B, where it will call method of class B
+
+again, if we call bar() with class D OBJECT
+it will first check its own class, then Class B, then it will find bar() in Class C.
+if it had not found the bar() in C it would have checked base class of B i.e. Class A and after that C
+
+again, if both C and B have foo() and if we call foo() with class D object
+if will first check foo() within itself, and then check the first base class i.e. class B
+
+OPENED FILE mro.py

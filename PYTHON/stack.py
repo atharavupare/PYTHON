@@ -46,13 +46,13 @@ class Stack:
     def __str__(self):
         return "Expected to return string format"
 
-    def __iter__(self):
+    def __iter__(self): #BY DEFAULT FOR LOOP CALLS THIS METHOD TO GET THE VAL
         print("__iter__")
         self.index = len(self.__mStack) - 1
         print("Index ", self.index)
         return self
 
-    def __next__(self):
+    def __next__(self): #THEN FOR LOOP WILL CALL THIS CONTINUOUSLY TO GET THE NEXT VAL
         print("__next__ ", self.index)
         if self.index == -1:
             raise StopIteration
@@ -60,25 +60,28 @@ class Stack:
         self.index -= 1
         return self.__mStack[i]
 
-    """def __iter__(self):
-        self.index = 0
-        return self
+    # def __iter__(self):
+    #     self.index = 0
+    #     return self
+    #
+    # def __next__(self):
+    #     if self.index == len(self.__mStack):
+    #         raise StopIteration
+    #         val = self.__mStack[index]
+    #     self.index += 1
+    #     return val
 
-    def __next__(self):
-        if self.index == len(self.__mStack):
-            raise StopIteration
-        self.index += 1
-        return self.index"""
-
-    def __getitem__(self, index):
+    def __getitem__(self, index): #IT WILL ALLOW SUBSCRIPTING YOUR OBJECT i.e. s[1] will return 2nd element in stack
         if index < 0 or index > (len(self.__mStack) - 1):
             raise IndexError
         return self.__mStack[index]
 
+    def __eq__(self, obj2):
+        return True if self.__mStack == obj2.__mStack else False
+
     def display(self):
         for i in self.__mStack:
             print("{} ".format(i), end="")
-        print()
 
 if __name__ == "__main__":
     s = Stack(10)
@@ -87,7 +90,7 @@ if __name__ == "__main__":
     print("Push numbers from 1 to 10 in stack")
     for i in range(1, 13):
         if not s.push(i):
-            print("Failed to push {} in stack. Stack seems to be full", i)
+            print("Failed to push {} in stack. Stack seems to be full".format(i))
     s.display()
     print("Top of stack: ", s.top())
     print("Pop 5 elements from stack")
