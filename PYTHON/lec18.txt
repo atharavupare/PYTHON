@@ -1,0 +1,67 @@
+EXCEPTION HANDLING
+
+TRY and EXCEPT blocks in PYTHON
+
+Whenever any error is raised in try block, it will look for that specific error block in except blocks
+
+NOTE : TO know which function throws which exception check help for that class. Every method will have a comment with the exception name
+EX:
+
+import sys
+
+def divideByNumber(numerator, denominator):
+    return numerator/denominator
+
+try: #statements under this block are checked for errors
+    numerator=int(input("Enter a numerator: "))
+    denominator=int(input("Enter a denominator: ")) #if invalid input is passed to int function it will throw ValueError automatically and this error is handled in the except block
+    if denominator == 0: #if this condition becomes true
+        raise ZeroDivisionError("Can't divide by zero") #throw an exception with raise keyword
+except ValueError as v: #error specification
+    print("ValueError: ", v)
+    sys.exit(1)
+except ZeroDivisionError as e: #error specification
+    print("Zero division error: ", e)
+    sys.exit(1)
+else: #This block is optional and is called if no error is raised in try block/no exception is occured
+    print("Numerator: {}, Denominator: {}".format(numerator, denominator))
+#even if sys.exit() is called finally block is first executed
+#This block is optional and is called always no matter what, whether the exception is raised or not, finally will be executed
+finally:
+    print("FINALY BLOCK")
+res = divideByNumber(numerator, denominator)
+print("Division of {} and {} is {}.".format(numerator, denominator, res))
+
+
+EXAMPLE 2
+
+import sys
+
+def divideByNumber(numerator, denominator):
+    return numerator/denominator
+flag = True
+while(flag==True):
+    flag = False
+    try:
+        numerator=int(input("Enter a numerator: "))
+        denominator=int(input("Enter a denominator: "))
+        res = divideByNumber(numerator, denominator)
+        print("Division of {} and {} is {}.".format(numerator, denominator, res))
+    except ValueError as v:
+        print("Enter integer: ", v)
+    except ZeroDivisionError as e:
+        print("Zero division error ", e)
+    #default 'except' must be last
+    #execept block without any name is generic exception block which means Whenever any other error than specified error is occured then this block is executed
+    except:
+        print("No exception specified")
+    else:
+        flag = True #if no exception is occured then flag is set to True
+        print("No exception while executing try block")
+        print("Numerator: {}, Denominator: {}".format(numerator, denominator))
+    finally:
+        print("Finally block will be executed always")
+        if(flag == False):
+            sys.exit(1)
+
+WRITING OWN EXCEPTION CLASSES:

@@ -26,7 +26,7 @@ d.whereiam()
 e = E()
 e.whereiam()
 
-#OUTPUT:
+# OUTPUT:
 # sbshark@pop-os:~/github/PYTHON$ python3 mro.py #initialy
 # I am in D
 # I am in C
