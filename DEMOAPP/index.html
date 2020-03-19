@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <title>tapemybox</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!--bootstrap tag-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'> <!--Montserrat FONT link-->
+
     <style>
-            .coverbg{
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            font-family: 'Montserrat';
+}
+@media screen and (min-width: 320px) {
+html {
+font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+}
+}
+@media screen and (min-width: 1000px) {
+html {
+font-size: 22px;
+}
+}
+body{
+  font-family: 'Montserrat';
+}
+        .coverbg{
                width:100%;
                height:750px;
                display:-webkit-box;
@@ -22,6 +42,21 @@
                background-size:cover;
                padding:0 !important;
            }
+           .textOnBg {
+             z-index: 100;
+             position: absolute;
+             color: white;
+             font-size: 24px;
+             font-weight: bold;
+             text-align: center;
+             align-self: center;
+             display: flex;
+             left: 200px;
+             flex-wrap: wrap;
+             align-content: center;
+             font-weight: 900;
+             font-size: 70px;
+            }
     </style>
 </head>
 <body>
@@ -29,17 +64,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="#">
-          <a href="index.html"><img src="white-navbarlogo.png" alt="navbarlogo" height="26" width="108"></a>
+          <a href="index.html"><img src="res/white-navbarlogo.png" alt="navbarlogo" height="26" width="108"></a>
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Services
-                <span class="sr-only">(current)</span>
-              </a>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About Us</a>
@@ -55,26 +88,17 @@
   </div>
 </nav>
 
-<div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('res/bg1.jpg');">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="brand">
-						<h1>Material Kit
-							<div class="pro-badge">
-								Pro
-							</div>
-						</h1>
-
-						<h3 class="title">Start Your Development With A Badass Bootstrap UI Kit inspired by Material Design.</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 <!-- Page Content -->
 
-<div style="margin-left:-0px;margin-right:-0px;display:flex;flex-wrap:wrap;flex-grow:0;flex-shrink:0;align-items:normal;justify-content:flex-start" id="hero"><div style="background-image:url('res/bg1.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"" class="HeroImage-ivosZ coverbg" role="img"></div></div>
+<div
+  style="margin-left:-0px;margin-right:-0px;display:flex;flex-wrap:wrap;flex-grow:0;flex-shrink:0;align-items:normal;justify-content:flex-start"
+  id="hero">
+  <div class="textOnBg">
+    Best Freight and Logistics Service in Pune
+</div>
+  <div style="background-image:url('res/bg1.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"" class="HeroImage-ivosZ coverbg" role="img">
+</div>
+</div>
 </body>
 </html>
