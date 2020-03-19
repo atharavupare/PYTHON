@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>tapemybox</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!--bootstrap tag-->
     <style>
-
+            .coverbg{
+               width:100%;
+               height:750px;
+               display:-webkit-box;
+               display:-webkit-flex;
+               display:-ms-flexbox;
+               display:flex;
+               -webkit-box-pack:end;
+               -webkit-justify-content:flex-end;
+               -ms-flex-pack:end;
+               justify-content:flex-end;
+               text-align:center;
+               background-position:center;
+               background-repeat:no-repeat;
+               background-size:cover;
+               padding:0 !important;
+           }
     </style>
 </head>
 <body>
@@ -21,12 +37,12 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home
+          <a class="nav-link" href="#">Services
                 <span class="sr-only">(current)</span>
               </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#">About Us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="login.html" target="_self">Login</a>
@@ -39,7 +55,26 @@
   </div>
 </nav>
 
+<div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('res/bg1.jpg');">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="brand">
+						<h1>Material Kit
+							<div class="pro-badge">
+								Pro
+							</div>
+						</h1>
+
+						<h3 class="title">Start Your Development With A Badass Bootstrap UI Kit inspired by Material Design.</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 <!-- Page Content -->
-<!-- /.container -->
+
+<div style="margin-left:-0px;margin-right:-0px;display:flex;flex-wrap:wrap;flex-grow:0;flex-shrink:0;align-items:normal;justify-content:flex-start" id="hero"><div style="background-image:url('res/bg1.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"" class="HeroImage-ivosZ coverbg" role="img"></div></div>
 </body>
 </html>
