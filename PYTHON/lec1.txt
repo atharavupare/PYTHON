@@ -19,7 +19,7 @@ result will be true
 short cicuit evaluation
 exp1 AND exp2 > if exp1 is false then it will not check for exp2
 exp1 OR exp2 > if exp1 is true then it will not check for exp2
-
+  
 
 
 DUMP>>>>>>
